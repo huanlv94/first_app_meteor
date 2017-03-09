@@ -1,0 +1,32 @@
+<template name="courses">
+  <div>
+    <h1>List courses</h1>
+  </div>
+  
+  <div>
+    {{ #if currentUser }}
+      <form class="new-courses">
+        <div class="col-xs-6 input-group">
+          <input class="form-control" type="text" name="course_name" placeholder="Course name" />
+        </div>
+        <div class="col-xs-6 input-group" style="margin-top: 10px;">
+          <input class="form-control" type="text" name="course_code" placeholder="Course code">
+        </div>
+        <div class="col-xs-12 input-group" style="margin-bottom: 10px">
+          <input type="submit" name="btn-save-course" value="Save course" class="btn btn-success" style="margin-top: 10px;">
+        </div>
+      </form>
+    {{ /if }}
+  </div>
+  <ul>
+    {{ #each courses }}
+      <li class="{{#if checked}}checked{{/if}}">
+        <button class="delete">&times;</button>
+
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+        <span class="text"><strong>{{ code }}</strong>: {{ name }}</span>
+      </li>
+    {{ /each }}
+  </ul>
+</template>

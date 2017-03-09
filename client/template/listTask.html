@@ -1,0 +1,20 @@
+<template name="listTask">
+  <div>
+    <h1>Todo List</h1>
+  </div>
+  
+  <div>
+    {{ #if currentUser }}
+      <div class="col-xs-12 input-group">
+        <form class="new-task">
+          <input class="form-control" type="text" name="text" placeholder="Nói gì đó..." />
+        </form>
+      </div>  
+    {{ /if }}
+  </div>
+  <ul>
+    {{ #each tasks }}
+      {{> task }}
+    {{ /each }}
+  </ul>
+</template>
